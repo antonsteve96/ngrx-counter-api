@@ -8,14 +8,21 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 
 @Slf4j
 @SpringBootApplication
+@EnableJpaAuditing(auditorAwareRef = "applicationAuditAware")
 public class NgrxCounterApiApplication {
 
+	/**
+	 * Può essere eliminata, solitamente le proprietà sono inserite direttamente negli application.properties
+	 * I file dotenv si impiegano per le applicazioni di front-end, dato che per le app Spring Boot vi
+	 * sono differenti modalità per la configurazione delle proprietà dell'applicazione in sicurezza
+	 */
 	public static void main(String[] args) {
 		Dotenv dotenv = Dotenv.configure()
 				.directory(Paths.get("").toAbsolutePath().toString()) // Percorso della directory

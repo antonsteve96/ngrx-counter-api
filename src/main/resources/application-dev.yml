@@ -48,8 +48,7 @@ application:
     upload:
       photos-output-path: ${UPLOAD_PHOTOS_OUTPUT_PATH}
 
-
-
+#Tomcat
 server:
   tomcat:
     threads:
@@ -61,6 +60,7 @@ server:
     context-path: ${SERVER_SERVLET_CONTEXT_PATH:/api/v1/}
 
 
+#Logging
 logging:
   level:
     root: ${LOGGING_LEVEL_ROOT:DEBUG}
